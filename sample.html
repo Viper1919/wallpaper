@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Urgency Matrix</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            margin-top: 400px;
+            background-color: rgb(65, 55, 55);
+        }
+        table {
+            border-collapse: collapse;
+        }
+        tr {
+            align-self: center;
+            border-collapse: collapse;
+        }
+        td {
+            width: 100px;
+            height: 100px;
+            border: 1px solid white;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td></td>
+            <td>Urgent</td>
+            <td> Not Urgent</td>
+        </tr>
+        <tr>
+            <td>Important</td>
+            <td onclick="selectCell(1,1)"><input type="text"></td>
+            <td onclick="selectCell(1,2)"><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Not Important</td>
+            <td onclick="selectCell(2,1)"><input type="text"></td>
+            <td onclick="selectCell(2,2)"><input type="text"></td>
+        </tr>
+        
+    </table>
+    <script>
+        var selected = null;
+        function selectCell(row, col){
+            if (selected){
+                selected.innerHTML = "<input type='text'>";
+            }
+            selected = document.getElementByTagName("td")[row * 3 + col];
+            var input = selected.getElementByTagName("input")[0] 
+            input.focus();
+        }
+    </script>
+</body>
+</html>
